@@ -1,0 +1,29 @@
+@(meetingForm: Form[Meeting])
+
+@import helper._
+@import helper.twitterBootstrap
+
+
+
+@*
+TODO: Play includes the Boilerplate code from main(with Title as parameter)
+*@
+@main("Alex | Meets") {
+
+    <h1> Schedule a Meeting: </h1>
+
+@*
+    TODO: Form gets Submitted to the reverse URL.
+*@
+    @helper.form(action = routes.Meetings.save(), 'class->"form-horizontal", 'id->"something") {
+        <form class="pure-form">
+        <fieldset>
+            <legend>Meeting </legend>
+            @helper.inputText(meetingForm("agenda"), '_label -> "Meeting Agenda")
+        </fieldset>
+        <input type="submit" class="btn btn-success" value="Schedule!">
+        <a class="btn btn-danger" href="@routes.Meetings.all()">Cancel</a>
+        </form>
+    }
+
+}

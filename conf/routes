@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#Login Page
+GET           /login                 controllers.Login.login(user: String)
+POST          /logout                controllers.Login.logout()
+
+# Home page
+GET           /                      controllers.Application.index()
+
+#Chats
+
+#Files
+
+#Meetings
+
+GET           /meets/fix             controllers.Meetings.fix()
+GET           /meets/:id             controllers.Meetings.byId(id: Long)
+GET           /meets                 controllers.Meetings.all()
+POST          /meets/save            controllers.Meetings.save()
+DELETE        /meets/:id             controllers.Meetings.delete(id: Long)
+
+GET           /meets/edit/:id        controllers.Meetings.edit(id: Long)
+
+#Schedule
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file          controllers.Assets.at(path="/public", file)
