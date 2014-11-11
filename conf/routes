@@ -3,8 +3,9 @@
 # ~~~~
 
 #Login Page
-GET           /login                 controllers.Login.login(user: String)
-POST          /logout                controllers.Login.logout()
+GET           /login                 controllers.Application.login()
+POST          /login                 controllers.Application.authenticate()
+POST          /logout                controllers.Application.logout()
 
 # Home page
 GET           /                      controllers.Application.index()
