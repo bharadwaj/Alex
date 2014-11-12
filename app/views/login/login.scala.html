@@ -1,0 +1,27 @@
+@(userForm: Form[Users])
+
+@main("Alex | Login") {
+
+
+
+
+    @helper.form(routes.Application.authenticate(),'name->"myform"){
+
+        <h1>Hey! Who's this? </h1>
+        <p>
+            <input type="text" name="userName" placeholder="bhargav or dij or jaya" value="@userForm("userName").value">
+        </p>
+        <a href="javascript: submitform()">Bhargav</a>
+
+
+
+    }
+
+}
+
+<script type="text/javascript">
+function submitform()
+{
+document.myform.submit();
+}
+</script>

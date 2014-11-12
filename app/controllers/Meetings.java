@@ -5,6 +5,7 @@ import models.Meeting;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 import views.html.meetings.list;
 import views.html.meetings.schedulemeeting;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * Created by Aagama on 09-11-2014.
  */
 
+@Security.Authenticated(Secured.class)
 public class Meetings extends Controller {
 
     private static final Form<Meeting> meetingForm = Form.form(Meeting.class);
