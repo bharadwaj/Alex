@@ -1,0 +1,37 @@
+.container-fluid.base-container {
+
+}
+
+.col-md-3.left-title-bar {
+    min-height: 200px;
+    background-color: white;
+}
+.col-md-3.right-title-bar {
+    min-height: 200px;
+    background-color: white;
+}
+
+.col-md-6.center-body {
+    min-height: 200px;
+    background-color: white;
+}
+
+#tasksForm {
+
+}
+
+/*label {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+input {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}*/

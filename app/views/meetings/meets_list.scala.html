@@ -1,0 +1,9 @@
+@(meetings: List[Meeting])
+
+
+<h1>Upcoming Meetings</h1>
+@for(meeting <- meetings) {
+    <a href = "@routes.Meetings.byId(meeting.id)">
+    @meeting.agenda
+    </a> <br>
+}

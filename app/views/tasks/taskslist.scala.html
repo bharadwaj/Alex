@@ -1,0 +1,10 @@
+@(tasks: List[Task])
+
+@index {
+    <h1>All Tasks:</h1>
+    @for(task <- tasks){
+        <a href="@routes.Tasks.byId(task.id)">@task.task</a>
+        <br>
+    }
+    
+}
