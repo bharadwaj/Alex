@@ -2,10 +2,10 @@ package controllers;
 
 import com.avaje.ebean.Ebean;
 import models.Users;
+import views.html.home;
 import play.data.Form;
 import play.mvc.*;
 
-import views.html.*;
 import views.html.login.login;
 import views.html.login.signup;
 
@@ -17,7 +17,7 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        return ok(home.render());
     }
 
     public static Result authenticate(){

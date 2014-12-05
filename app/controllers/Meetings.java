@@ -6,8 +6,10 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
-import views.html.meetings.list;
-import views.html.meetings.schedulemeeting;
+import views.html.home;
+import views.html.meetings.meets_home;
+import views.html.meetings.meetbyid;
+import views.html.meetings.schedule_meet;
 
 import java.util.List;
 
@@ -23,11 +25,11 @@ public class Meetings extends Controller {
 
     public static Result all() {
         List<Meeting> allMeetings = Meeting.find.all();
-        return ok(list.render(allMeetings));
+        return ok(meets_home.render(allMeetings));
     }
 
     public static Result fix() {
-        return ok(schedulemeeting.render(meetingForm));
+        return ok(schedule_meet.render(meetingForm));
     }
 
     public static Result save() {
@@ -52,12 +54,12 @@ public class Meetings extends Controller {
         }
 
         Form<Meeting> filledForm = meetingForm.fill(meeting);
-        return ok(schedulemeeting.render(filledForm));
+        return ok(schedule_meet.render(filledForm));
     }
 
     public static Result byId(Long id) {
         final Meeting foundMeeting = Meeting.find.byId(id);
-        return ok();
+        return ok(meetbyid.render(foundMeeting));
     }
 
 
