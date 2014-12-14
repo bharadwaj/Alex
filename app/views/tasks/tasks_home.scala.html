@@ -1,0 +1,21 @@
+@(taskList: List[Task])(taskForm: Form[Task])(task: Task)
+@import views.html.tasks.tasks_form
+@import views.html.tasks.tasks_list
+@import views.html.tasks.task_by_id
+
+@index{
+
+    <div class="col-md-4 objects-list">
+
+        @tasks_list(taskList)
+    </div>
+    <div class="col-md-8 object-body">
+
+        @if(task != null) {
+            @task_by_id(task)
+        }else{
+            @tasks_form(taskForm)
+        }
+
+    </div>
+}

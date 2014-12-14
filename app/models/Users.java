@@ -19,7 +19,14 @@ public class Users extends Model {
 
     public String email;
 
+    public Users(Long id, String userName, String email) {
+        this.id = id;
+        this.userName = userName;
+        this.email = email;
+    }
+
     public static Finder<Long, Users> find = new Finder<Long, Users>(
             Long.class, Users.class
     );
+
 }

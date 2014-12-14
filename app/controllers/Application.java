@@ -9,6 +9,8 @@ import play.mvc.*;
 import views.html.login.login;
 import views.html.login.signup;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Application extends Controller {
@@ -53,4 +55,20 @@ public class Application extends Controller {
         return ok();
     }
 
+    //TODO Make YAML File for this.
+    public static Result createUsers(){
+        List<Users> defaultUsers = new ArrayList<>();
+
+        Users bhargav = new Users(Long.valueOf(1), "bhargav@gmail.com", "bhargav");
+        Users dij = new Users(Long.valueOf(2), "bhargav@gmail.com", "dij");
+        Users jaya = new Users(Long.valueOf(3), "bhargav@gmail.com", "jaya");
+
+        defaultUsers.add(bhargav);
+        defaultUsers.add(dij);
+        defaultUsers.add(jaya);
+
+        Ebean.save(defaultUsers);
+
+        return ok();
+    }
 }

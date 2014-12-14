@@ -1,12 +1,11 @@
 package models;
 
-import org.joda.time.DateTime;
+import play.data.format.Formats;
+import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -18,13 +17,22 @@ public class Task extends Model {
     @Id
     public Long id;
 
+    @Required
     public String task;
     public String createdTime;
-    public String dueDate;
+    @Required
+    @Formats.DateTime(pattern = "yyyy-MM-dd")
+    public LocalDate dueDate;
     public Long authorId;
-    @ManyToOne
-    List<Long> assigneeIds;
+    @ManyToMany
+    List<Users> assigneeIds;
+    public Boolean taskDone;
+    public Boolean taskPriority;
 
+    @OneToOne
+    public Chat chat;
+
+    
     public static Finder<Long, Task> find = new Finder<Long, Task>(
             Long.class, Task.class
     );

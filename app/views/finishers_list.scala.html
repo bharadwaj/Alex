@@ -1,0 +1,7 @@
+@(finisherList: List[Users])
+
+<ul class="nav nav-pills nav-stacked">
+    @for(finisher <- finisherList){
+        <a href="#" class="list-group-item"><input type="checkbox" /> @finisher.email</a>
+    }
+</ul>

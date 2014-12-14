@@ -1,0 +1,20 @@
+@(taskForm: Form[Task])
+
+@import helper._
+
+
+@form(action = routes.Tasks.saveTask(), 'id -> "taskForm") {
+
+    @inputText(taskForm("task"))
+    @inputDate(taskForm("dueDate"), 'type->"date")
+
+
+    <input type="submit" class="btn btn-success" value="Schedule!">
+}
+
+
+<script>
+$ ( function ( ) {
+$ ( "#datepicker" ).datepicker ( ) ;
+} ) ;
+</script>
