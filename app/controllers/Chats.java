@@ -7,5 +7,16 @@ import play.mvc.Security;
  */
 
 @Security.Authenticated(Secured.class)
-public class Chats {
+public class Chats extends Controller{
+
+    public static Form<Chat> chatForm = Form.form(Chat.Class);
+
+    public static Result index(){
+        return ok();
+    }
+
+    public static Result saveTask() {
+
+        return TODO;
+    }
 }

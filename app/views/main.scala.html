@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String)(content: Html)(nav_content: Html)
 
 <!DOCTYPE html>
 
@@ -17,6 +17,31 @@
     </head>
     <body>
 
-        @content
+        <div class = "container-fluid base-container">
+
+            <div class="row">
+                <div class="col-md-3 left-title-bar">
+
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a href="#" class="list-group-item">Home</a></li>
+                        <a href="/tasks" class="list-group-item">Tasks</a>
+                        <a href="/goals" class="list-group-item">Goals</a>
+                        <a href="/meets" class="list-group-item">Meets</a>
+                        <a href="/chat" class="list-group-item">Chats</a>
+                        <a href="/files" class="list-group-item">Files</a>
+                    </ul>
+
+                </div>
+                <div class="col-md-6 center-body">
+                    @content
+                </div>
+                <div class="col-md-3 right-title-bar">
+                    @nav_content
+
+                </div>
+            </div>
+
+        </div>
+
     </body>
 </html>

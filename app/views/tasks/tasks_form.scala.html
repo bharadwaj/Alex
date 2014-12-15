@@ -1,20 +1,33 @@
 @(taskForm: Form[Task])
 
-@import helper._
+
+    @import helper._
 
 
-@form(action = routes.Tasks.saveTask(), 'id -> "taskForm") {
+    @form(action = routes.Tasks.saveTask(), 'id -> "taskForm") {
 
-    @inputText(taskForm("task"))
-    @inputDate(taskForm("dueDate"), 'type->"date")
+        @inputText(taskForm("task"))
+        @inputDate(taskForm("dueDate"), 'type -> "date")
+
+        <div>
+
+            @*
+            @defining(models.Finisher.find.all()) { finisherList =>
+                @for(finisher <- finisherList) {
+                    @finisher.username
+                    @checkbox(taskForm("assigneeIds"), 'value -> finisher.id)
+                }
+            }
+            *@
+        </div>
 
 
-    <input type="submit" class="btn btn-success" value="Schedule!">
-}
+        <input type="submit" class="btn btn-success" value="Schedule!">
+    }
 
 
-<script>
-$ ( function ( ) {
-$ ( "#datepicker" ).datepicker ( ) ;
-} ) ;
-</script>
+    <script>
+    $ ( function ( ) {
+    $ ( "#datepicker" ).datepicker ( ) ;
+    } ) ;
+    </script>

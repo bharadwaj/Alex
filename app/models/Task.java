@@ -1,11 +1,13 @@
 package models;
 
+import com.avaje.ebean.Ebean;
+import org.joda.time.DateTime;
 import play.data.format.Formats;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,10 +24,10 @@ public class Task extends Model {
     public String createdTime;
     @Required
     @Formats.DateTime(pattern = "yyyy-MM-dd")
-    public LocalDate dueDate;
+    public Date dueDate;
     public Long authorId;
     @ManyToMany
-    List<Users> assigneeIds;
+    List<Finisher> assigneeIds;
     public Boolean taskDone;
     public Boolean taskPriority;
 
@@ -36,5 +38,10 @@ public class Task extends Model {
     public static Finder<Long, Task> find = new Finder<Long, Task>(
             Long.class, Task.class
     );
+
+    public static Boolean saveTask(Task task){
+        Ebean.save(task);
+        return true;
+    }
 
 }

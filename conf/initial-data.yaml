@@ -1,0 +1,7 @@
+---
+users:
+- !!models.Finisher
+ id: 1
+ username: Bob
+ email: true
+

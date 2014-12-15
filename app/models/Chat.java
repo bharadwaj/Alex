@@ -1,16 +1,12 @@
 package models;
 
 import com.avaje.ebean.annotation.EnumValue;
-import org.h2.engine.User;
 import org.joda.time.DateTime;
 import play.data.format.Formats;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,12 +22,16 @@ public class Chat extends Model {
     public DateTime createTime;
 
     @ManyToOne
-    public Users user;
+    public Finisher finisher;
     public String title;
     public ChatType type;
 
     @OneToMany(mappedBy = "chat")
     public List<ChatMessage> messages;
+
+    public static Finder<Long, Chat> find = new Finder<Long, Chat>(
+            Long.class, Chat.class
+    );
 
     @Entity
     public class ChatMessage {

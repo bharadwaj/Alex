@@ -1,6 +1,6 @@
 package controllers;
 
-import com.avaje.ebean.Ebean;
+import models.Finisher;
 import models.Task;
 import play.data.Form;
 import play.mvc.Controller;
@@ -28,7 +28,7 @@ public class Tasks extends Controller {
         } else {
             Task task = boundForm.get();
             task.authorId = Long.MIN_VALUE;
-            Ebean.save(task);
+            Task.saveTask(task);
         }
         return redirect("/tasks");
     }

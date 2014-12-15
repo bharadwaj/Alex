@@ -1,4 +1,4 @@
-@(signupForm: Form[Users])
+@(signupForm: Form[Finisher])
 
 @import helper._
 @import helper.twitterBootstrap
@@ -10,11 +10,13 @@
         <form>
             <fieldset>
                 <legend>Sign Up New User</legend>
-                @helper.inputText(signupForm("userName"), '_label -> "Username:", 'placeholder->"alex")
+                @helper.inputText(signupForm("username"), '_label -> "Username:", 'placeholder->"alex")
                 @helper.inputText(signupForm("email"), '_label -> "Email:", 'type->"email", 'placeholder->"alex@jotarthur.com")
             </fieldset>
             <input type="submit" class="btn btn-success" value="Sign Up!">
             <a class="btn btn-danger" href="#">Cancel</a>
         </form>
     }
+} {
+    @* nav_content is null *@
 }
